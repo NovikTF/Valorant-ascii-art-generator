@@ -1,7 +1,7 @@
 # Valorant-ascii-art-generator
 Ascii art generator for valorant chat
 
-Inspired by VALORANT Oekaki Chat by RUNFUNRUN, made with ChatGPT.
+Inspired by VALORANT Oekaki Chat by RUNFUNRUN, made by NovikTF with ChatGPT.
 
 
 1. Draw with left mouse button
@@ -14,3 +14,6 @@ Inspired by VALORANT Oekaki Chat by RUNFUNRUN, made with ChatGPT.
   
 - Press "Go back" to go back one move
 - Press "Go Forward" to go forward one move
+
+
+Discord: noviktf
