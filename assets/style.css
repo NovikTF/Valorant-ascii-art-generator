@@ -1,0 +1,340 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/background.jpg'); /* Background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    filter: blur(0px); /* Blur effect */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding-bottom: 60px; /* Add padding at the bottom to prevent footer overlap */
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer; /* Change default mouse pointer to a finger pointing */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(26, 40px); /* 26 columns */
+    grid-template-rows: repeat(13, 40px); /* 13 rows */
+    grid-gap: 1px;
+}
+
+.pixel {
+    width: 40px;
+    height: 40px;
+    background-color: #333; /* Darker background for pixels */
+    border: 1px solid #555; /* Border color for pixels */
+}
+
+.pixel.selected {
+    background-color: #007bff; /* Blue color for selected pixels */
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.generate-button {
+    font-family: monospace;
+    opacity: 70%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 6px;
+}
+
+.generate-button:hover {
+    background-color: #28a745; /* Light green color on hover */
+}
+
+.copy-button {
+    font-family: monospace;
+    opacity: 80%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+
+.copy-button:hover {
+    background-color: #0056b3; /* Light blue color on hover */
+}
+
+.reset-button {
+    font-family: monospace;
+    opacity: 75%;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.reset-button:hover {
+    background-color: #dc3545; /* Light red color on hover */
+}
+
+#output {
+    margin-top: 20px;
+    font-family: monospace;
+    white-space: pre;
+}
+
+/* Add CSS animations */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 11%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #5d9a3d;
+    color: white;
+    border-radius: 5px;
+    animation: fadeInOut 2s;
+}
+
+.alert:hover {
+    background-color: #4a7f2b; /* Light green color on hover */
+}
+
+.reset-alert {
+    display: none;
+    position: fixed;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    animation: fadeInOut 2s;
+}
+
+.reset-alert:hover {
+    background-color: #dc3545; /* Light red color on hover */
+}
+
+.back-alert,
+.forward-alert {
+    display: none;
+    position: fixed;
+    top: 21%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #37b683; /* Light green color */
+    color: white;
+    border-radius: 5px;
+    animation: fadeInOut 2s;
+}
+
+.back-alert:hover,
+.forward-alert:hover {
+    background-color: #36a37f; /* Darker green color on hover */
+}
+
+
+/* Add CSS for arrow buttons */
+.back-button,
+.forward-button {
+  font-family: monospace;
+  opacity: 75%;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #37b683; /* Light green color */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 5px;
+  margin-right: 5px; /* Adjust spacing between buttons */
+}
+
+.back-button:hover,
+.forward-button:hover {
+  background-color: #36a37f; /* Darker green color on hover */
+}
+
+.copy-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #6c757d; /* Gray color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px; /* Adjust spacing between buttons */
+}
+
+.copy-button:hover {
+    background-color: #5a6268; /* Darker gray color on hover */
+}
+
+/* CSS for button animations */
+
+.generate-button,
+.copy-button,
+.reset-button,
+.back-button,
+.forward-button {
+    transition: transform 0.2s ease-in-out;
+}
+
+.generate-button:hover,
+.copy-button:hover,
+.reset-button:hover,
+.back-button:hover,
+.forward-button:hover {
+    transform: scale(1.1);
+}
+
+.generate-button:active,
+.copy-button:active,
+.reset-button:active,
+.back-button:active,
+.forward-button:active {
+    transform: scale(0.9);
+}
+
+.grid {
+    user-select: none; /* Prevent text selection */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-user-select: none; /* Safari */
+}
+
+/* Add stunning animation for grid pixels */
+.pixel {
+    opacity: 90%;
+    width: 40px;
+    height: 40px;
+    background-color: #1c1a1af3; /* Darker background for pixels */
+    border: 3px solid #232322c2; /* Border color for pixels */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+.pixel.selected {
+    background-color: #3c4482eb; /* Blue color for selected pixels */
+}
+
+/* Add stunning animation for grid pixel hover */
+.pixel:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+    transition: transform 0.1s ease; /* Smooth transition for scale effect */
+    filter: brightness(70%); /* Reduce brightness on hover */
+}
+
+/* Footer styles */
+footer {
+    opacity: 50%;
+    font-family: monospace;
+    background-color: #272c52f3; /* Dark background */
+    color: #987d7d; /* Text color */
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1; /* Set z-index to a higher value */
+}
+
+/* Add blur effect to the edge of the footer */
+footer::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Adjust height of blur effect */
+    background: linear-gradient(to top, #272c52f3, transparent); /* Apply gradient for blur effect */
+    pointer-events: none; /* Make pseudo-element not clickable */
+}
+
+/* Banner styling */
+.banner {
+    font-family: monospace;
+    opacity: 50%;
+    background-color: #272c52; /* Accent color */
+    color: #987d7d; /* Text color */
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2; /* Set z-index to a higher value */
+}
+
+/* Add blur effect to the edge of the banner */
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px; /* Adjust height of blur effect */
+    background: linear-gradient(to bottom, #272c52f3, transparent); /* Apply gradient for blur effect */
+    pointer-events: none; /* Make pseudo-element not clickable */
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Ensure it's above the background */
+}
+  
+  .banner h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 18px; /* Larger font size */
+  }
+
+  /* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b0b10; /* Dark background for scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101644; /* Darker color for scrollbar thumb */
+    border-radius: 5px; /* Rounded corners for scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #272c52; /* Darker color for scrollbar thumb on hover */
+}

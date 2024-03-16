@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII Art Generator for Valorant</title>
+  <link rel="stylesheet" href="assets/style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <!-- Background container -->
+    <div class="background-container">
+      <!-- Banner -->
+    </div>
+
+    <div class="banner">
+      <h1>Valorant Chat ASCII Art Generator by NovikTF</h1>
+    </div>
+
+  <br><br><br><br><br>
+  <div class="container">
+    <!-- Grid for pixels -->
+    <div class="grid-container">
+      <div class="grid" id="grid">
+        <!-- This is where the pixels will be dynamically generated -->
+      </div>
+      <br>
+    </div>
+    <br>
+    <div class="buttons">
+      <button class="generate-button" onclick="generateAsciiArt()">Generate Art</button>
+      <button class="copy-button" onclick="copyToClipboard()">Copy</button>
+      <button class="reset-button" onclick="resetGrid()">Reset</button>
+      <button class="back-button" onclick="goBack()">← Go back</button>
+      <button class="forward-button" onclick="goForward()">Forward → </button>
+    </div>
+    <br>
+    <div id="output"></div>
+    <!-- Alert for copied ASCII -->
+    <div id="copiedAlert" class="alert">ASCII art copied to clipboard!</div>
+    <!-- Alert for reset -->
+    <div id="resetAlert" class="alert">Grid reset!</div>
+    <!-- Alert for go back and go forward -->
+    <div id="backAlert" class="alert">Went back!</div>
+    <div id="forwardAlert" class="alert">Went forward!</div>
+  </div>
+
+  <br><br>
+
+  <!-- Copyright tag -->
+  <footer>
+    <p>&copy; 2024 NovikTF. All rights reserved.</p>
+  </footer>
+
+  <!-- Include the script file -->
+  <script src="assets/script.js"></script>
+</body>
+</html>
