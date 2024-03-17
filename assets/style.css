@@ -250,6 +250,7 @@ body {
 
 .pixel.selected {
     background-color: #3c4482eb; /* Blue color for selected pixels */
+    z-index: 1; /* Ensure hovered pixels appear on top */
 }
 
 /* Add stunning animation for grid pixel hover */
@@ -257,6 +258,7 @@ body {
     transform: scale(1.2); /* Scale effect on hover */
     transition: transform 0.1s ease; /* Smooth transition for scale effect */
     filter: brightness(70%); /* Reduce brightness on hover */
+    z-index: 1; /* Ensure hovered pixels appear on top */
 }
 
 /* Footer styles */
