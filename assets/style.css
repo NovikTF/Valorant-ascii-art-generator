@@ -244,7 +244,7 @@ body {
     width: 40px;
     height: 40px;
     background-color: #1c1a1af3; /* Darker background for pixels */
-    border: 20px solid #232322c2; /* Border color for pixels */
+    border: 3px solid #242424; /* Border color for pixels */
     transition: background-color 0.3s ease; /* Smooth transition for background color change */
 }
 
